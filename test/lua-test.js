@@ -43,7 +43,7 @@ describe('convert(** type **)', function () {
         });
 
         it('should enclose result in double quotes', function () {
-            /^".*"$/.test(result).should.be.ok;
+            /^".*"$/.test(result).should.be.true;
         });
 
         it('should contain unaltered string', function () {
@@ -51,5 +51,71 @@ describe('convert(** type **)', function () {
         });
     });
 
-    
+    describe('null', function () {
+        var result = js2lua.convert(null);
+
+        it('should return "nil"', function () {
+            result.should.equal('nil');
+        });
+    });
+
+    describe('array', function () {
+        var result = js2lua.convert([ 'a', 'b', 'c' ]);
+
+        it('should enclose result in braces', function () {
+            /^{.*}$/.test(result).should.true;
+        });
+
+        it('should contain the same number of entries', function () {
+            result.split(',').should.have.lengthOf(3);
+        });
+
+        it('should separate each entry with a comma', function () {
+            (result.split(',').length - 1).should.equal(2);
+        });
+    });
+
+    describe('object', function () {
+        var result = js2lua.convert({ a: 1, b: null, c: 2 });
+
+        it('should enclose result in braces', function () {
+            /^{.*}$/.test(result).should.true;
+        });
+
+        it('should contain the same number of entries', function () {
+            result.split(',').should.have.lengthOf(3);
+        });
+
+        it('should separate key - value with "="', function () {
+            (result.split('=').length - 1).should.equal(3);
+        });
+
+        it('should separate each entry with a comma', function () {
+            (result.split(',').length - 1).should.equal(2);
+        });
+
+        it('should enclose keys in ["key"]', function () {
+            result.replace(/\{|\}/g, '').split(',').forEach(function (prop) {
+                /\[".*"\]/.test(prop).should.be.true;
+            });
+        });
+    });
+
+    describe('nested object', function () {
+        var result = js2lua.convert({ a: 1, b: { c: 2, d: 3 }});
+
+        it('should contain all objects', function () {
+            (result.split('{').length - 1).should.equal(2);
+            (result.split('}').length - 1).should.equal(2);
+        });
+
+        it('should contain all key / value', function () {
+            (result.split('=').length - 1).should.equal(4);
+        });
+
+        it('should distinguish nested object', function () {
+            var nested = result.substring(result.indexOf('["b"]'), result.length - 2);
+            /\{.*\}$/.test(nested).should.be.true;
+        });
+    });
 });
