@@ -18,6 +18,8 @@ Convert object to lua syntax.
 
 ## Example
 
+Basic usage:
+
 ```javascript
 
 var js2lua = require('js2lua'),
@@ -26,8 +28,35 @@ var js2lua = require('js2lua'),
 console.log(js2lua.convert(input))
 
 // output:
-// '{["a"] = {"abc","def"}, ["b"] = {["a"] = 1, ["b"] = 2 }, ["c"] = "1234" }
+// '{["a"] = {"abc","def"}, ["b"] = { ["a"] = 1, ["b"] = 2 }, ["c"] = "1234" }
 
+```
+
+Express content negotiation:
+
+```javascript
+// Lua Middleware
+app.use(function (req, res, next) {
+    // Get reference to original send
+    var expressSend = res.send;
+
+    // Redefine send to convert body if necessary
+    res.send = function (body) {
+        // Check accept header
+        if (req.headers.accept && req.headers.accept == 'application/lua') {
+            // Convert body && set content type
+            body = js2lua.convert(body);
+            res.set('Content-Type', 'application/lua');
+        }
+
+        // Deliver result
+        expressSend.apply(res, arguments);
+    }
+    next();
+});
+
+// Add app.router AFTER
+app.use(app.router);
 ```
 
 ## License
