@@ -1,0 +1,25 @@
+{
+  "name": "js2lua",
+  "version": "0.0.1",
+  "description": "Convert javascript objects into lua table representation",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "should": "~1.2.2"
+  },
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "repository": "",
+  "keywords": [
+    "json",
+    "lua",
+    "conversion",
+    "convert"
+  ],
+  "author": "Steven White",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
