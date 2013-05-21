@@ -3,23 +3,24 @@
   "version": "0.0.1",
   "description": "Convert javascript objects into lua table representation",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "devDependencies": {
     "should": "~1.2.2"
   },
   "scripts": {
     "test": "mocha -R spec test/"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ensequence/js2lua.git"
+  },
   "keywords": [
     "json",
     "lua",
     "conversion",
-    "convert"
+    "convert",
+    "content negotiation"
   ],
-  "author": "Ensequence Inc.",
+  "author": "Steven White <swhitewvu24@gmail.com>",
   "license": "MIT",
   "readmeFilename": "README.md"
 }
