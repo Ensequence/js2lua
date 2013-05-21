@@ -2,7 +2,7 @@
  * lua-test.js
  * Generic tests for js to lua conversion
  *
- * (C) 2013 Steven White
+ * (C) 2013 Ensequence Inc.
  */
 
 // ### Dependencies

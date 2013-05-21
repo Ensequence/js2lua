@@ -2,7 +2,7 @@
  * repl.js
  * Repl exposing internals
  *
- * (C) 2013 Steven White
+ * (C) 2013 Ensequence Inc.
  */
 
 var repl = require('repl'),

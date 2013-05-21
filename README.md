@@ -1,11 +1,17 @@
 ## js2lua
 
-Provide easy conversion of javascript objects into lua table representation.
+Provides easy conversion of javascript objects into lua table representation.
 
 ## Installation
 
 ```bash
 $ npm install js2lua
+```
+
+## Tests
+
+```bash
+$ npm test
 ```
 
 ## API
@@ -32,9 +38,11 @@ console.log(js2lua.convert(input))
 
 ```
 
-Express content negotiation:
+[Express](https://github.com/visionmedia/express) content negotiation:
 
 ```javascript
+var js2lua = require('js2lua');
+
 // Lua Middleware
 app.use(function (req, res, next) {
     // Get reference to original send
@@ -59,11 +67,25 @@ app.use(function (req, res, next) {
 app.use(app.router);
 ```
 
+[Restify](https://github.com/mcavage/node-restify/) content negotiation:
+
+```javascript
+var js2lua = require('js2lua');
+
+restify.createServer({
+    formatters: {
+        'application/lua': function formatLua (req, res, body) {
+            return js2lua.convert(body);
+        }
+    }
+});
+```
+
 ## License
 
 (The MIT License)
 
-Copyright (c) 2013 Steven White
+Copyright (c) 2013 Ensequence Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

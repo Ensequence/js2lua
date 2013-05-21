@@ -2,7 +2,7 @@
  * index.js
  * Entry point into lua-converter
  *
- * (C) 2013 Steven White
+ * (C) 2013 Ensequence Inc.
  */
 
 // ### Exports
