@@ -16,11 +16,12 @@ $ npm test
 
 ## API
 
-#### convert(obj)
+#### convert(obj, indentation)
 
 Convert object to lua syntax.
 
 * `obj`: object to convert
+* `indentation`: [Optional] spaces to indent
 
 ## Example
 
