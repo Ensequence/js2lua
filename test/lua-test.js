@@ -114,7 +114,7 @@ describe('convert(** type **)', function () {
         });
 
         it('should distinguish nested object', function () {
-            var nested = result.substring(result.indexOf('["b"]'), result.length - 2);
+            var nested = result.substring(result.indexOf('["b"]'), result.length - 1);
             /\{.*\}$/.test(nested).should.be.true;
         });
     });
