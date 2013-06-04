@@ -118,4 +118,16 @@ describe('convert(** type **)', function () {
             /\{.*\}$/.test(nested).should.be.true;
         });
     });
+
+    describe('escaped string', function() {
+        var result = js2lua.convert('\r\n');
+
+        it('should escape \\n', function() {
+            result.indexOf('\\n').should.be.above(0);
+        });
+
+        it('should escape \\r', function() {
+            result.indexOf('\\r').should.be.above(0);
+        });
+    })
 });
