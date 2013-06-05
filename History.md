@@ -1,3 +1,7 @@
+v0.1.3 / 2013-06-05 
+==================
+
+ * Added escaping for more than one end of line character and doublequotes
 
 v0.1.2 / 2013-06-05 
 ==================
