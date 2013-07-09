@@ -120,8 +120,9 @@ describe('convert(** type **)', function () {
     });
 
     describe('escaped string', function() {
-        var result = js2lua.convert('\"\r\n\r\n\"\\\\');
+        var result = js2lua.convert('\"\r\n\r\n\"\\');
         result = result.substr(1, result.length - 2);
+
         it('should escape \\n', function() {
             result.indexOf('\\n').should.be.above(0);
         });
@@ -131,7 +132,7 @@ describe('convert(** type **)', function () {
         });
 
         it('should escape \\"', function() {
-            result.indexOf('\\"').should.be.above(0);
+            result.indexOf('\\"').should.equal(0);
         });
 
         it('should escape all \\n', function() {
@@ -147,7 +148,8 @@ describe('convert(** type **)', function () {
         });
 
         it('should escape all \\', function () {
-            result.split('\\\\\\\\').length.should.equal(2);
+            console.log(result);
+            result.split('\\\\').length.should.equal(2);
         });
     })
 });

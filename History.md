@@ -1,4 +1,10 @@
 
+v0.1.5 / 2013-07-09 
+==================
+
+ * Updated tests
+ * Only replacing ending backslash; addresses #1
+
 v0.1.4 / 2013-07-09 
 ==================
 
