@@ -1,3 +1,10 @@
+
+v0.1.4 / 2013-07-09 
+==================
+
+ * Added test for single slash replacement
+ * Added string replacement for single slashes; addresses #1
+
 v0.1.3 / 2013-06-05 
 ==================
 
