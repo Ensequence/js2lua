@@ -1,6 +1,6 @@
 {
   "name": "js2lua",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Convert javascript objects into lua table representation",
   "main": "index.js",
   "devDependencies": {

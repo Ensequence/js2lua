@@ -118,4 +118,32 @@ describe('convert(** type **)', function () {
             /\{.*\}$/.test(nested).should.be.true;
         });
     });
+
+    describe('escaped string', function() {
+        var result = js2lua.convert('\"\r\n\r\n\"');
+
+        it('should escape \\n', function() {
+            result.indexOf('\\n').should.be.above(0);
+        });
+
+        it('should escape \\r', function() {
+            result.indexOf('\\r').should.be.above(0);
+        });
+
+        it('should escape \\"', function() {
+            result.indexOf('\\"').should.be.above(0);
+        });
+
+        it('should escape all \\n', function() {
+            result.split('\\n').length.should.equal(3);
+        });
+
+        it('should escape all \\r', function() {
+            result.split('\\r').length.should.equal(3);
+        });
+
+        it('should escape all \\"', function() {
+            result.split('\\"').length.should.equal(3);
+        });
+    })
 });
