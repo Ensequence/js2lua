@@ -2,6 +2,10 @@
 
 Provides easy conversion of javascript objects into lua table representation.
 
+[![Build Status](https://travis-ci.org/Ensequence/js2lua.png)](https://travis-ci.org/Ensequence/js2lua)
+[![NPM version](https://badge.fury.io/js/js2lua.png)](http://badge.fury.io/js/js2lua)
+[![Dependencies](https://gemnasium.com/Ensequence/js2lua.png)](https://gemnasium.com/Ensequence/js2lua)
+
 ## Installation
 
 ```bash
